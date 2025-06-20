@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Освітній шлях Назара Славова: від шкільних років до професійного освоєння програмування, дизайну та цифрових технологій.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Славов Назар | Навчання">
+    <meta property="og:description" content="Освітній шлях Назара Славова: від шкільних років до професійного освоєння програмування, дизайну та цифрових технологій.">
+    <meta property="og:url" content="https://www.nazarslavov.com/learn">
+    <meta property="og:site_name" content="Славов Назар">
+    <meta property="og:image" content="nazar-slavov-portfolio.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NazarSlavov">
+    <title>Славов Назар | Навчання</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/mobile.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .row {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .col-12 {
+            width: 100%;
+            max-width: 1200px;
+        }
+        header {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #1f2937;
+            transition: color 0.3s ease;
+        }
+        #logo:hover {
+            color: #3b82f6;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #1f2937;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        .social li {
+            display: inline;
+            margin-left: 8px;
+        }
+        .social li a {
+            font-size: 14px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social li a:hover {
+            color: #3b82f6;
+        }
+        .icon-nav {
+            display: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #1f2937;
+        }
+        #content {
+            padding: 48px 0;
+            position: relative;
+            z-index: 10;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 64px 0;
+            background: transparent;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        .hero-section p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .education-section {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .education-section h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .education-section p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 8px auto 0;
+        }
+        .education-content {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+        .education-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        .education-content p {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+        .education-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .education-content ul li {
+            font-size: 16px;
+            color: #1f2937;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .education-content ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-size: 20px;
+        }
+        .education-content ul li strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+        footer {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        footer .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        footer .copyright a {
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        footer .copyright a:hover {
+            color: #3b82f6;
+        }
+        #nav-footer ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            list-style: none;
+        }
+        #nav-footer ul li a {
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        #nav-footer ul li a:hover {
+            color: #3b82f6;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .footer-social li {
+            display: inline;
+        }
+        .footer-social li a {
+            font-size: 14px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-social li a:hover {
+            color: #3b82f6;
+        }
+        .back-to-top {
+            padding: 16px 0;
+        }
+        .back-to-top a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-to-top a:hover {
+            color: #1d4ed8;
+        }
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #loading-canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
+    <script src="js/modernizr-2.5.3-min.js" defer></script>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/clipboard.min.js" defer></script>
+    <script src="js/hooks.min.js" defer></script>
+    <script src="js/i18n.min.js" defer></script>
+    <script src="js/swv.min.js" defer></script>
+    <script src="js/contact-form-7.min.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script>
+        document.documentElement.className = 'js';
+        window._wpemojiSettings = {
+            baseUrl: "emoji/",
+            ext: ".png",
+            svgUrl: "emoji/svg/",
+            svgExt: ".svg",
+            source: {
+                concatemoji: "js/wp-emoji-release.min.js"
+            }
+        };
+        window.wp = window.wp || {};
+        wp.i18n = {
+            setLocaleData: function(data) {
+                console.log('Locale data set:', data);
+            }
+        };
+        wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+    </script>
+    <script>
+        let scene, camera, renderer, stars;
+        let mouseX = 0, mouseY = 0;
+        let isInitialized = false;
+
+        function initLoadingScreen() {
+            if (isInitialized) return;
+            isInitialized = true;
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('loading-canvas'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            const starGeometry = new THREE.BufferGeometry();
+            const starCount = 1000;
+            const positions = new Float32Array(starCount * 3);
+            const colors = new Float32Array(starCount * 3);
+            const sizes = new Float32Array(starCount);
+            const opacities = new Float32Array(starCount);
+
+            for (let i = 0; i < starCount; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 100;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 100;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 100;
+                colors[i * 3] = 0.8 + Math.random() * 0.2;
+                colors[i * 3 + 1] = 0.8 + Math.random() * 0.2;
+                colors[i * 3 + 2] = 1.0;
+                sizes[i] = 0.1 + Math.random() * 0.3;
+                opacities[i] = Math.random();
+            }
+
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            starGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+            starGeometry.setAttribute('opacity', new THREE.BufferAttribute(opacities, 1));
+
+            const starMaterial = new THREE.PointsMaterial({
+                size: 0.3,
+                vertexColors: true,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                opacity: 0.8
+            });
+
+            stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+            camera.position.z = 50;
+
+            const animateStars = () => {
+                const time = Date.now() * 0.001;
+                for (let i = 0; i < starCount; i++) {
+                    opacities[i] = 0.5 + 0.5 * Math.sin(time + i);
+                }
+                starGeometry.getAttribute('opacity').needsUpdate = true;
+            };
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (!stars) return;
+                stars.rotation.y += 0.002;
+                stars.position.x = mouseX * 0.1;
+                stars.position.y = mouseY * 0.1;
+                animateStars();
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        }
+
+        function handleScroll() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const currentScrollTop = window.scrollY;
+            if (currentScrollTop > 50) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                }, 500);
+            } else {
+                loadingScreen.style.opacity = '1';
+                loadingScreen.classList.remove('hidden');
+            }
+        }
+
+        window.addEventListener('load', () => {
+            initLoadingScreen();
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loading-screen').classList.add('hidden');
+                }, 500);
+            }, 2000);
+        });
+
+        window.addEventListener('resize', () => {
+            if (isInitialized && camera && renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+            mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+        });
+
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('touchmove', handleScroll);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.hero-section, .education-content');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                observer.observe(section);
+            });
+
+            const educationItems = document.querySelectorAll('.education-content ul li');
+            educationItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.background = 'rgba(59, 130, 246, 0.1)';
+                    item.style.transform = 'scale(1.02)';
+                    item.style.transition = 'background 0.3s ease, transform 0.3s ease';
+                });
+                item.addEventListener('mouseleave', () => {
+                    item.style.background = 'transparent';
+                    item.style.transform = 'scale(1)';
+                });
+            });
+
+            const navItems = document.querySelectorAll('#nav li');
+            navItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(-10px)';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                    item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                }, index * 100);
+            });
+
+            const backToTop = document.querySelector('.back-to-top');
+            backToTop.style.opacity = '0';
+            backToTop.style.transition = 'opacity 0.3s ease';
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.style.opacity = '1';
+                } else {
+                    backToTop.style.opacity = '0';
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="loading-screen" aria-label="Анімація завантаження із зображенням галактики">
+        <canvas id="loading-canvas"></canvas>
+    </div>
+    <header id="header">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <a id="logo" class="logo" href="index.html">Славов Назар</a>
+                    <div class="icon-nav">☰</div>
+                    <ul id="nav">
+                        <li class="page_item"><a href="bio.html">Про мене</a></li>
+                        <li class="page_item"><a href="learn.html" aria-current="page">Навчання</a></li>
+                        <li class="page_item"><a href="portfolio.html">Портфоліо</a></li>
+                        <li class="page_item"><a href="blog.html">Блог</a></li>
+                        <li class="page_item"><a href="contact.html">Контакти</a></li>
+                        <li>
+                            <ul class="social">
+                                <li class="twitter"><a href="https://twitter.com/NazarSlavov" title="Стежте за мною у Twitter" target="_blank" rel="noopener">Twitter</a></li>
+                                <li class="linkedin"><a href="https://www.linkedin.com/in/nazarslavov" title="Зв’яжіться зі мною у LinkedIn" target="_blank" rel="noopener">LinkedIn</a></li>
+                                <li class="facebook"><a href="https://www.facebook.com/nazarslavov" title="Підпишіться на мене у Facebook" target="_blank" rel="noopener">Facebook</a></li>
+                                <li class="instagram"><a href="https://www.instagram.com/nazar.slavov" title="Стежте за мною в Instagram" target="_blank" rel="noopener">Instagram</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="content">
+        <section class="hero-section">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Навчання</h1>
+                    <p>Мій шлях у світ програмування, дизайну та цифрових технологій: від перших кроків у школі до професійного освоєння сучасних інструментів.</p>
+                </div>
+            </div>
+        </section>
+        <section id="education" class="education-section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="education-section">
+                        <h1>Освітній шлях</h1>
+                        <p>Від шкільних років до інтенсивного вивчення програмування та дизайну — мій шлях до створення інноваційних цифрових рішень.</p>
+                    </div>
+                    <div class="education-content">
+                        <h2>Шкільна освіта</h2>
+                        <p>Моя пристрасть до технологій почалася в шкільні роки, коли я захопився комп’ютерними науками.</p>
+                        <ul>
+                            <li><strong>Криворізька гімназія №118 (2016–2025):</strong> Закінчив із відзнакою, демонструючи високі академічні результати. Саме тут я вперше зацікавився програмуванням і дизайном, беручи участь у шкільних проєктах із інформатики та створюючи перші вебсторінки.</li>
+                        </ul>
+                    </div>
+                    <div class="education-content">
+                        <h2>Самостійне навчання</h2>
+                        <p>Самостійне вивчення мов програмування дозволило мені поглибити знання та розвинути практичні навички.</p>
+                        <ul>
+                            <li><strong>Самостійні курси з Lua та Python (2023–2025):</strong> Самостійно пройшов серію онлайн-курсів, зосереджених на скриптовій розробці. Lua допомогла мені створювати динамічні ігрові системи в Roblox Studio, а Python — автоматизувати процеси та розробляти потужні додатки для аналізу даних.</li>
+                        </ul>
+                    </div>
+                    <div class="education-content">
+                        <h2>Вебтехнології</h2>
+                        <p>Опанування сучасних вебтехнологій відкрило нові можливості для створення інтерактивних і користувацько-орієнтованих рішень.</p>
+                        <ul>
+                            <li><strong>Вивчення вебтехнологій у ШКМ (2019–2025):</strong> Опанував HTML, CSS, JavaScript, React і PHP у рамках Школи комп’ютерної майстерності. Я створив кілька адаптивних вебсайтів, включаючи інтерактивні інтерфейси з React, і розробив серверні рішення на PHP для динамічних вебзастосунків.</li>
+                        </ul>
+                    </div>
+                    <div class="education-content">
+                        <h2>Підсумок</h2>
+                        <p>Мій освітній шлях — це не лише академічні досягнення, а й постійне прагнення до саморозвитку. Кожен курс і проєкт допоміг мені розвинути навички, які я використовую для створення інноваційних і користувацько-орієнтованих рішень у програмуванні та дизайні.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer id="footer" role="contentinfo">
+        <div class="row">
+            <div class="col-12">
+                <div class="footer-content">
+                    <div class="copyright">
+                        <a href="index.html">© 2025 Назар Славов</a>
+                    </div>
+                    <nav id="nav-footer">
+                        <ul>
+                            <li class="page_item"><a href="bio.html">Про мене</a></li>
+                            <li class="page_item"><a href="learn.html" aria-current="page">Навчання</a></li>
+                            <li class="page_item"><a href="portfolio.html">Портфоліо</a></li>
+                            <li class="page_item"><a href="blog.html">Блог</a></li>
+                            <li class="page_item"><a href="contact.html">Контакти</a></li>
+                        </ul>
+                    </nav>
+                    <ul class="footer-social">
+                        <li class="twitter"><a href="https://twitter.com/NazarSlavov" title="Стежте за мною у Twitter" target="_blank" rel="noopener">Twitter</a></li>
+                        <li class="linkedin"><a href="https://www.linkedin.com/in/nazarslavov" title="Зв’яжіться зі мною у LinkedIn" target="_blank" rel="noopener">LinkedIn</a></li>
+                        <li class="facebook"><a href="https://www.facebook.com/nazarslavov" title="Підпишіться на мене у Facebook" target="_blank" rel="noopener">Facebook</a></li>
+                        <li class="instagram"><a href="https://www.instagram.com/nazar.slavov" title="Стежте за мною в Instagram" target="_blank" rel="noopener">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="back-to-top">
+            <a href="#top">На початок</a>
+        </div>
+    </footer>
+</body>
+</html>

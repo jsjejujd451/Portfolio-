@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <title>Славов Назар | Художник, UI/UX та Програміст | Портфоліо</title>
+    <meta name="description" content="Портфоліо Назара Славова: креативні художні роботи, сучасний UI/UX дизайн та інноваційна розробка.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Славов Назар | Художник, UI/UX та Програміст | Портфоліо">
+    <meta property="og:description" content="Портфоліо Назара Славова: креативні художні роботи, сучасний UI/UX дизайн та інноваційна розробка.">
+    <meta property="og:url" content="https://www.nazarslavov.com/portfolio">
+    <meta property="og:site_name" content="Славов Назар">
+    <meta property="og:image" content="portfolionazar-slavov-portfolio.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NazarSlavov">
+    <link rel="shortcut icon" href="portfoliofavicon.png" type="image/png">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .row {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .col-12 {
+            width: 100%;
+            max-width: 1200px;
+        }
+        header {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #1f2937;
+            transition: color 0.3s ease;
+        }
+        #logo:hover {
+            color: #3b82f6;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #1f2937;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        .social li {
+            display: inline;
+            margin-left: 8px;
+        }
+        .social li a {
+            font-size: 14px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social li a:hover {
+            color: #3b82f6;
+        }
+        .icon-nav {
+            display: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #1f2937;
+        }
+        .show-intro-btn {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1f2937;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .show-intro-btn:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        #content {
+            padding: 48px 0;
+            position: relative;
+            z-index: 10;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 64px 0;
+            background: transparent;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        .hero-section p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .bio-section, .education-section, .knowledge-section, .portfolio-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .bio-section h1, .education-section h1, .knowledge-section h1, .portfolio-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .bio-section p, .education-section p, .knowledge-section p, .portfolio-header p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 8px auto 0;
+        }
+        .bio-content, .education-content, .knowledge-content {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+        .bio-content h2, .education-content h2, .knowledge-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        .bio-content p, .education-content p, .knowledge-content p {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+        .bio-content ul, .education-content ul, .knowledge-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .bio-content ul li, .education-content ul li, .knowledge-content ul li {
+            font-size: 16px;
+            color: #1f2937;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .bio-content ul li::before, .education-content ul li::before, .knowledge-content ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-size: 20px;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            list-style: none;
+            padding: 0;
+        }
+        .portfolio-item {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 200px;
+        }
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-item {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel-item img,
+        .carousel-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(-50%);
+            padding: 0 10px;
+        }
+        .carousel-nav button {
+            background: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        .carousel-nav button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: scale(1.05);
+        }
+        .carousel-nav button:active {
+            transform: scale(0.95);
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .carousel-indicators button {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ccc;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .carousel-indicators button.active {
+            background: #007bff;
+        }
+        .portfolio-item .description {
+            padding: 16px;
+        }
+        .portfolio-item h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+        .portfolio-item p {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+        .portfolio-item a {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .portfolio-item a:hover {
+            color: #1d4ed8;
+        }
+        .skills-section {
+            margin-top: 48px;
+            text-align: center;
+        }
+        .skills-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            list-style: none;
+            padding: 0;
+        }
+        .skills-grid li {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skills-grid li:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+        .skills-grid h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        .skills-grid p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+        footer {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        footer .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        footer .copyright a {
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        footer .copyright a:hover {
+            color: #3b82f6;
+        }
+        #nav-footer ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            list-style: none;
+        }
+        #nav-footer ul li a {
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        #nav-footer ul li a:hover {
+            color: #3b82f6;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .footer-social li {
+            display: inline;
+        }
+        .footer-social li a {
+            font-size: 14px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-social li a:hover {
+            color: #3b82f6;
+        }
+        .back-to-top {
+            padding: 16px 0;
+        }
+        .back-to-top a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-to-top a:hover {
+            color: #1d4ed8;
+        }
+        img:is([sizes="auto" i], [sizes^="auto," i]) {
+            contain-intrinsic-size: 3000px 1500px;
+        }
+        img.wp-smiley, img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 0.07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #loading-canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="js/modernizr-2.5.3-min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/hooks.min.js"></script>
+    <script src="js/i18n.min.js"></script>
+    <script src="js/swv.min.js"></script>
+    <script src="js/contact-form-7.min.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+        document.documentElement.className = 'js';
+        window._wpemojiSettings = {
+            baseUrl: "portfolioemoji/",
+            ext: ".png",
+            svgUrl: "portfolioemoji/svg/",
+            svgExt: ".svg",
+            source: {
+                concatemoji: "js/wp-emoji-release.min.js"
+            }
+        };
+        window.wp = window.wp || {};
+        wp.i18n = {
+            setLocaleData: function(data) {
+                console.log('Locale data set:', data);
+            }
+        };
+        wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.icon-nav');
+            const navMenu = document.querySelector('#nav');
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+    <script>
+        let loadingScene, loadingCamera, loadingRenderer, starSystem, nearStarSystem, nebulaSystem, coreSystem, dustSystem;
+        let stars = {}, nearStars = {}, nebulas = {}, core = {}, dust = {};
+        let mouseX = 0, mouseY = 0;
+        let loadingTime = 0;
+        let lastScrollTop = 0;
+
+        function initLoadingScreen() {
+            loadingScene = new THREE.Scene();
+            loadingCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            loadingRenderer = new THREE.WebGLRenderer({ canvas: document.getElementById('loading-canvas'), alpha: true });
+            loadingRenderer.setSize(window.innerWidth, window.innerHeight);
+            loadingRenderer.setClearColor(0x0a0a1a, 1);
+            const pointLight = new THREE.PointLight(0xffffff, 1.5, 0);
+            pointLight.position.set(0, 0, 0);
+            loadingScene.add(pointLight);
+            const textureLoader = new THREE.TextureLoader();
+            const starTexture = textureLoader.load('portfoliostar.png');
+            const nebulaTexture = textureLoader.load('portfolionebula.png');
+            const starCount = 2000;
+            const starPositions = new Float32Array(starCount * 3);
+            const starColors = new Float32Array(starCount * 3);
+            const starSizes = new Float32Array(starCount);
+            const starParams = new Array(starCount).fill().map(() => ({
+                arm: Math.floor(Math.random() * 4),
+                radius: Math.random() * 15 + 3,
+                angle: Math.random() * Math.PI * 2,
+                speed: Math.random() * 0.003 + 0.001
+            }));
+            const starGeometry = new THREE.BufferGeometry();
+            const starMaterial = new THREE.PointsMaterial({
+                size: 0.2,
+                map: starTexture,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.9,
+                blending: THREE.AdditiveBlending
+            });
+            for (let i = 0; i < starCount; i++) {
+                const params = starParams[i];
+                const theta = params.angle + params.arm * Math.PI / 2;
+                const r = params.radius * Math.exp(0.2 * theta);
+                starPositions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 0.5;
+                starPositions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 0.5;
+                starPositions[i * 3 + 2] = (Math.random() - 0.5) * 1.5;
+                starColors[i * 3] = Math.random() > 0.7 ? 0.8 : 1;
+                starColors[i * 3 + 1] = Math.random() > 0.7 ? 0.9 : 1;
+                starColors[i * 3 + 2] = Math.random() > 0.3 ? 1 : 0.8;
+                starSizes[i] = 0.1 + Math.random() * 0.1;
+            }
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
+            starGeometry.setAttribute('color', new THREE.BufferAttribute(starColors, 3));
+            starGeometry.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
+            starSystem = new THREE.Points(starGeometry, starMaterial);
+            loadingScene.add(starSystem);
+            stars = { positions: starPositions, geometry: starGeometry, params: starParams };
+            const nearStarCount = 300;
+            const nearStarPositions = new Float32Array(nearStarCount * 3);
+            const nearStarColors = new Float32Array(nearStarCount * 3);
+            const nearStarSizes = new Float32Array(nearStarCount);
+            const nearStarParams = new Array(nearStarCount).fill().map(() => ({
+                radius: Math.random() * 5 + 2,
+                angle: Math.random() * Math.PI * 2,
+                speed: Math.random() * 0.005 + 0.002
+            }));
+            const nearStarGeometry = new THREE.BufferGeometry();
+            const nearStarMaterial = new THREE.PointsMaterial({
+                size: 0.7,
+                map: starTexture,
+                vertexColors: true,
+                transparent: true,
+                opacity: 1.0,
+                blending: THREE.AdditiveBlending
+            });
+            for (let i = 0; i < nearStarCount; i++) {
+                const params = nearStarParams[i];
+                const theta = params.angle;
+                const r = params.radius;
+                nearStarPositions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 0.3;
+                nearStarPositions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 0.3;
+                nearStarPositions[i * 3 + 2] = (Math.random() - 0.5) * 0.2 + 8;
+                nearStarColors[i * 3] = 1.0;
+                nearStarColors[i * 3 + 1] = Math.random() > 0.1 ? 1.0 : 0.95;
+                nearStarColors[i * 3 + 2] = Math.random() > 0.1 ? 1.0 : 0.95;
+                nearStarSizes[i] = 0.5 + Math.random() * 0.3;
+            }
+            nearStarGeometry.setAttribute('position', new THREE.BufferAttribute(nearStarPositions, 3));
+            nearStarGeometry.setAttribute('color', new THREE.BufferAttribute(nearStarColors, 3));
+            nearStarGeometry.setAttribute('size', new THREE.BufferAttribute(nearStarSizes, 1));
+            nearStarSystem = new THREE.Points(nearStarGeometry, nearStarMaterial);
+            loadingScene.add(nearStarSystem);
+            nearStars = { positions: nearStarPositions, geometry: nearStarGeometry, params: nearStarParams };
+            const nebulaCount = 50;
+            const nebulaPositions = new Float32Array(nebulaCount * 3);
+            const nebulaColors = new Float32Array(nebulaCount * 3);
+            const nebulaSizes = new Float32Array(nebulaCount);
+            const nebulaParams = new Array(nebulaCount).fill().map(() => ({
+                arm: Math.floor(Math.random() * 4),
+                radius: Math.random() * 20 + 5,
+                angle: Math.random() * Math.PI * 2,
+                speed: Math.random() * 0.002 + 0.001
+            }));
+            const nebulaGeometry = new THREE.BufferGeometry();
+            const nebulaMaterial = new THREE.PointsMaterial({
+                size: 2.0,
+                map: nebulaTexture,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+            for (let i = 0; i < nebulaCount; i++) {
+                const params = nebulaParams[i];
+                const theta = params.angle + params.arm * Math.PI / 2;
+                const r = params.radius * Math.exp(0.15 * theta);
+                nebulaPositions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 1;
+                nebulaPositions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 1;
+                nebulaPositions[i * 3 + 2] = (Math.random() - 0.5) * 2;
+                nebulaColors[i * 3] = Math.random() > 0.5 ? 1 : 0.7;
+                nebulaColors[i * 3 + 1] = Math.random() > 0.5 ? 0.5 : 0.7;
+                nebulaColors[i * 3 + 2] = Math.random() > 0.3 ? 1 : 0.8;
+                nebulaSizes[i] = 1.5 + Math.random() * 0.5;
+            }
+            nebulaGeometry.setAttribute('position', new THREE.BufferAttribute(nebulaPositions, 3));
+            nebulaGeometry.setAttribute('color', new THREE.BufferAttribute(nebulaColors, 3));
+            nebulaGeometry.setAttribute('size', new THREE.BufferAttribute(nebulaSizes, 1));
+            nebulaSystem = new THREE.Points(nebulaGeometry, nebulaMaterial);
+            loadingScene.add(nebulaSystem);
+            nebulas = { positions: nebulaPositions, geometry: nebulaGeometry, params: nebulaParams };
+            const coreCount = 50;
+            const corePositions = new Float32Array(coreCount * 3);
+            const coreColors = new Float32Array(coreCount * 3);
+            const coreSizes = new Float32Array(coreCount);
+            const coreParams = new Array(coreCount).fill().map(() => ({
+                radius: Math.random() * 1.5,
+                angle: Math.random() * Math.PI * 2,
+                speed: Math.random() * 0.01 + 0.005
+            }));
+            const coreGeometry = new THREE.BufferGeometry();
+            const coreMaterial = new THREE.PointsMaterial({
+                size: 0.5,
+                map: starTexture,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.95,
+                blending: THREE.AdditiveBlending
+            });
+            for (let i = 0; i < coreCount; i++) {
+                const params = coreParams[i];
+                const theta = params.angle;
+                const r = params.radius;
+                corePositions[i * 3] = r * Math.cos(theta);
+                corePositions[i * 3 + 1] = r * Math.sin(theta);
+                corePositions[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
+                coreColors[i * 3] = 1;
+                coreColors[i * 3 + 1] = 0.9;
+                coreColors[i * 3 + 2] = 0.8;
+                coreSizes[i] = 0.3 + Math.random() * 0.2;
+            }
+            coreGeometry.setAttribute('position', new THREE.BufferAttribute(corePositions, 3));
+            coreGeometry.setAttribute('color', new THREE.BufferAttribute(coreColors, 3));
+            coreGeometry.setAttribute('size', new THREE.BufferAttribute(coreSizes, 1));
+            coreSystem = new THREE.Points(coreGeometry, coreMaterial);
+            loadingScene.add(coreSystem);
+            core = { positions: corePositions, geometry: coreGeometry, params: coreParams };
+            const dustCount = 200;
+            const dustPositions = new Float32Array(dustCount * 3);
+            const dustColors = new Float32Array(dustCount * 3);
+            const dustSizes = new Float32Array(dustCount);
+            const dustParams = new Array(dustCount).fill().map(() => ({
+                radius: Math.random() * 20 + 5,
+                angle: Math.random() * Math.PI * 2,
+                speed: Math.random() * 0.002 + 0.001
+            }));
+            const dustGeometry = new THREE.BufferGeometry();
+            const dustMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.2,
+                blending: THREE.AdditiveBlending
+            });
+            for (let i = 0; i < dustCount; i++) {
+                const params = dustParams[i];
+                const theta = params.angle;
+                const r = params.radius * Math.exp(0.1 * theta);
+                dustPositions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 2;
+                dustPositions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 2;
+                dustPositions[i * 3 + 2] = (Math.random() - 0.5) * 3;
+                dustColors[i * 3] = 0.6;
+                dustColors[i * 3 + 1] = 0.6;
+                dustColors[i * 3 + 2] = 0.8;
+                dustSizes[i] = 0.05 + Math.random() * 0.03;
+            }
+            dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3));
+            dustGeometry.setAttribute('color', new THREE.BufferAttribute(dustColors, 3));
+            dustGeometry.setAttribute('size', new THREE.BufferAttribute(dustSizes, 1));
+            dustSystem = new THREE.Points(dustGeometry, dustMaterial);
+            loadingScene.add(dustSystem);
+            dust = { positions: dustPositions, geometry: dustGeometry, params: dustParams };
+            loadingCamera.position.z = 25;
+            loadingTime = Date.now();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const elapsed = Date.now() - loadingTime;
+            const time = elapsed * 0.001;
+
+            if (stars.positions && stars.geometry && stars.params) {
+                for (let i = 0; i < stars.positions.length / 3; i++) {
+                    const params = stars.params[i];
+                    params.angle += params.speed / Math.sqrt(params.radius);
+                    const theta = params.angle + params.arm * Math.PI / 2;
+                    const r = params.radius * Math.exp(0.2 * theta);
+                    stars.positions[i * 3] = r * Math.cos(theta);
+                    stars.positions[i * 3 + 1] = r * Math.sin(theta);
+                }
+                stars.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (nearStars.positions && nearStars.geometry && nearStars.params) {
+                for (let i = 0; i < nearStars.positions.length / 3; i++) {
+                    const params = nearStars.params[i];
+                    params.angle += params.speed;
+                    const theta = params.angle;
+                    const r = params.radius;
+                    nearStars.positions[i * 3] = r * Math.cos(theta);
+                    nearStars.positions[i * 3 + 1] = r * Math.sin(theta);
+                }
+                nearStars.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (nebulas.positions && nebulas.geometry && nebulas.params) {
+                for (let i = 0; i < nebulas.positions.length / 3; i++) {
+                    const params = nebulas.params[i];
+                    params.angle += params.speed / Math.sqrt(params.radius);
+                    const theta = params.angle + params.arm * Math.PI / 2;
+                    const r = params.radius * Math.exp(0.15 * theta);
+                    nebulas.positions[i * 3] = r * Math.cos(theta);
+                    nebulas.positions[i * 3 + 1] = r * Math.sin(theta);
+                }
+                nebulas.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (core.positions && core.geometry && core.params) {
+                for (let i = 0; i < core.positions.length / 3; i++) {
+                    const params = core.params[i];
+                    params.angle += params.speed;
+                    const theta = params.angle;
+                    const r = params.radius;
+                    core.positions[i * 3] = r * Math.cos(theta);
+                    core.positions[i * 3 + 1] = r * Math.sin(theta);
+                }
+                core.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (dust.positions && dust.geometry && dust.params) {
+                for (let i = 0; i < dust.positions.length / 3; i++) {
+                    const params = dust.params[i];
+                    params.angle += params.speed / Math.sqrt(params.radius);
+                    const theta = params.angle;
+                    const r = params.radius * Math.exp(0.1 * theta);
+                    dust.positions[i * 3] = r * Math.cos(theta);
+                    dust.positions[i * 3 + 1] = r * Math.sin(theta);
+                }
+                dust.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (starSystem) starSystem.rotation.z += 0.0005;
+            if (nearStarSystem) nearStarSystem.rotation.z += 0.0007;
+            if (nebulaSystem) nebulaSystem.rotation.z += 0.0005;
+            if (coreSystem) coreSystem.rotation.z += 0.001;
+            if (dustSystem) dustSystem.rotation.z += 0.0003;
+
+            if (starSystem) {
+                starSystem.position.x += (mouseX * 0.3 - starSystem.position.x) * 0.02;
+                starSystem.position.y += (mouseY * 0.3 - starSystem.position.y) * 0.02;
+            }
+            if (nearStarSystem) {
+                nearStarSystem.position.x += (mouseX * 0.4 - nearStarSystem.position.x) * 0.02;
+                nearStarSystem.position.y += (mouseY * 0.4 - nearStarSystem.position.y) * 0.02;
+            }
+            if (nebulaSystem) {
+                nebulaSystem.position.x += (mouseX * 0.3 - nebulaSystem.position.x) * 0.02;
+                nebulaSystem.position.y += (mouseY * 0.3 - nebulaSystem.position.y) * 0.02;
+            }
+            if (coreSystem) {
+                coreSystem.position.x += (mouseX * 0.3 - coreSystem.position.x) * 0.02;
+                coreSystem.position.y += (mouseY * 0.3 - coreSystem.position.y) * 0.02;
+            }
+            if (dustSystem) {
+                dustSystem.position.x += (mouseX * 0.3 - dustSystem.position.x) * 0.02;
+                dustSystem.position.y += (mouseY * 0.3 - dustSystem.position.y) * 0.02;
+            }
+
+            loadingRenderer.render(loadingScene, loadingCamera);
+        }
+
+        function resetIntro() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.classList.remove('hidden');
+            if (starSystem) starSystem.material.opacity = 0.9;
+            if (nearStarSystem) nearStarSystem.material.opacity = 1.0;
+            if (nebulaSystem) nebulaSystem.material.opacity = 0.3;
+            if (coreSystem) coreSystem.material.opacity = 0.95;
+            if (dustSystem) dustSystem.material.opacity = 0.2;
+            loadingTime = Date.now();
+
+            if (stars.positions && stars.geometry && stars.params) {
+                for (let i = 0; i < stars.positions.length / 3; i++) {
+                    const params = stars.params[i];
+                    params.angle = Math.random() * Math.PI * 2;
+                    const theta = params.angle + params.arm * Math.PI / 2;
+                    const r = params.radius * Math.exp(0.2 * theta);
+                    stars.positions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 0.5;
+                    stars.positions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 0.5;
+                    stars.positions[i * 3 + 2] = (Math.random() - 0.5) * 1.5;
+                }
+                stars.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (nearStars.positions && nearStars.geometry && nearStars.params) {
+                for (let i = 0; i < nearStars.positions.length / 3; i++) {
+                    const params = nearStars.params[i];
+                    params.angle = Math.random() * Math.PI * 2;
+                    const theta = params.angle;
+                    const r = params.radius;
+                    nearStars.positions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 0.3;
+                    nearStars.positions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 0.3;
+                    nearStars.positions[i * 3 + 2] = (Math.random() - 0.5) * 0.2 + 8;
+                }
+                nearStars.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (nebulas.positions && nebulas.geometry && nebulas.params) {
+                for (let i = 0; i < nebulas.positions.length / 3; i++) {
+                    const params = nebulas.params[i];
+                    params.angle = Math.random() * Math.PI * 2;
+                    const theta = params.angle + params.arm * Math.PI / 2;
+                    const r = params.radius * Math.exp(0.15 * theta);
+                    nebulas.positions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 1;
+                    nebulas.positions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 1;
+                    nebulas.positions[i * 3 + 2] = (Math.random() - 0.5) * 2;
+                }
+                nebulas.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (core.positions && core.geometry && core.params) {
+                for (let i = 0; i < core.positions.length / 3; i++) {
+                    const params = core.params[i];
+                    params.angle = Math.random() * Math.PI * 2;
+                    const theta = params.angle;
+                    const r = params.radius;
+                    core.positions[i * 3] = r * Math.cos(theta);
+                    core.positions[i * 3 + 1] = r * Math.sin(theta);
+                    core.positions[i * 3 + 2] = (Math.random() - 0.5) * 0.5;
+                }
+                core.geometry.attributes.position.needsUpdate = true;
+            }
+
+            if (dust.positions && dust.geometry && dust.params) {
+                for (let i = 0; i < dust.positions.length / 3; i++) {
+                    const params = dust.params[i];
+                    params.angle = Math.random() * Math.PI * 2;
+                    const theta = params.angle;
+                    const r = params.radius * Math.exp(0.1 * theta);
+                    dust.positions[i * 3] = r * Math.cos(theta) + (Math.random() - 0.5) * 2;
+                    dust.positions[i * 3 + 1] = r * Math.sin(theta) + (Math.random() - 0.5) * 2;
+                    dust.positions[i * 3 + 2] = (Math.random() - 0.5) * 3;
+                }
+                dust.geometry.attributes.position.needsUpdate = true;
+            }
+        }
+
+        function handleScroll() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const currentScrollTop = window.scrollY;
+            if (currentScrollTop > lastScrollTop && currentScrollTop > 50) {
+                loadingScreen.classList.add('hidden');
+            } else if (currentScrollTop < lastScrollTop && currentScrollTop <= 50) {
+                loadingScreen.classList.remove('hidden');
+                if (starSystem) starSystem.material.opacity = 0.9;
+                if (nearStarSystem) nearStarSystem.material.opacity = 1.0;
+                if (nebulaSystem) nebulaSystem.material.opacity = 0.3;
+                if (coreSystem) coreSystem.material.opacity = 0.95;
+                if (dustSystem) dustSystem.material.opacity = 0.2;
+            }
+            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+        }
+
+        window.addEventListener('load', () => {
+            initLoadingScreen();
+            animate();
+            document.getElementById('show-intro').addEventListener('click', resetIntro);
+            setTimeout(() => {
+                document.getElementById('loading-screen').classList.add('hidden');
+            }, 5000);
+        });
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = (event.clientX / window.innerWidth - 0.5) * 2;
+            mouseY = -(event.clientY / window.innerHeight - 0.5) * 2;
+        });
+
+        window.addEventListener('resize', () => {
+            loadingCamera.aspect = window.innerWidth / window.innerHeight;
+            loadingCamera.updateProjectionMatrix();
+            loadingRenderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('touchmove', handleScroll, { passive: true });
+    </script>
+</head>
+<body>
+    <div id="loading-screen" aria-label="Анімація завантаження із зображенням галактики">
+        <canvas id="loading-canvas"></canvas>
+    </div>
+    <header id="header">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <a id="logo" class="logo" href="index.html">Славов Назар</a>
+                    <div class="icon-nav">☰</div>
+                    <ul id="nav">
+                        <li class="page_item"><a href="bio.html">Про мене</a></li>
+                        <li class="page_item"><a href="learn.html">Навчання</a></li>
+                        <li class="page_item"><a href="portfolio.html">Портфоліо</a></li>
+                        <li class="page_item"><a href="blog.html">Блог</a></li>
+                        <li class="page_item"><a href="contact.html">Контакти</a></li>
+                        <li><a id="show-intro" class="show-intro-btn" href="#">Показати заставку</a></li>
+                        <li>
+                            <ul class="social">
+                                <li class="twitter"><a href="https://www.twitter.com/NazarSlavov" title="Стежте за мною у Twitter" target="_blank">Twitter</a></li>
+                                <li class="linkedin"><a href="https://www.linkedin.com/in/nazarslavov" title="Зв’яжіться зі мною у LinkedIn" target="_blank">LinkedIn</a></li>
+                                <li class="facebook"><a href="https://www.facebook.com/nazarslavov" title="Підпишіться на мене у Facebook" target="_blank">Facebook</a></li>
+                                <li class="instagram"><a href="https://www.instagram.com/nazar.slavov" title="Стежте за мною в Instagram" target="_blank">Instagram</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="content">
+        <section class="hero-section">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Назар Славов</h1>
+                    <p>Творю унікальні цифрові світи через мистецтво, дизайн та код.</p>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio">
+            <div class="row">
+                <div class="col-12">
+                    <div class="portfolio-header">
+                        <h1>Портфоліо</h1>
+                        <p>Мої роботи поєднують креативність і технології для створення незабутнього досвіду.</p>
+                    </div>
+                    <ul class="portfolio-grid">
+                        <li class="portfolio-item" tabindex="0">
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item">
+                                        <img src="3d.png" alt="3D-контент 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="3d1.png" alt="3D-контент 2">
+                                    </div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <button class="prev" aria-label="Попередній слайд">←</button>
+                                    <button class="next" aria-label="Наступний слайд">→</button>
+                                </div>
+                                <div class="carousel-indicators"></div>
+                            </div>
+                            <div class="description">
+                                <h3>3D-моделювання та рендеринг</h3>
+                                <p>Створення іммерсивних 3D-сцен для ігор</p>
+                                <a href="project-saas.html">Дізнатися більше</a>
+                            </div>
+                        </li>
+                        <li class="portfolio-item" tabindex="0">
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item">
+                                        <img src="html1.png" alt="UI для гри 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="html2.png" alt="UI для гри 2">
+                                    </div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <button class="prev" aria-label="Попередній слайд">←</button>
+                                    <button class="next" aria-label="Наступний слайд">→</button>
+                                </div>
+                                <div class="carousel-indicators"></div>
+                            </div>
+                            <div class="description">
+                                <h3>Веброзробка HTML, CSS, JS</h3>
+                                <p>Створення сучасних вебінтерфейсів</p>
+                                <a href="project-ar.html">Дізнатися більше</a>
+                            </div>
+                        </li>
+                        <li class="portfolio-item" tabindex="0">
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item">
+                                        <img src="py1.png" alt="UI для гри 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="py2.png" alt="UI для гри 2">
+                                    </div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <button class="prev" aria-label="Попередній слайд">←</button>
+                                    <button class="next" aria-label="Наступний слайд">→</button>
+                                </div>
+                                <div class="carousel-indicators"></div>
+                            </div>
+                            <div class="description">
+                                <h3>Скриптинг на Python</h3>
+                                <p>Автоматизація та розробка додатків</p>
+                                <a href="project-game.html">Дізнатися більше</a>
+                            </div>
+                        </li>
+                        <li class="portfolio-item" tabindex="0">
+                            <div class="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item">
+                                        <video src="lua1.mp4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <video src="lua2.mp4">
+                                    </div>
+                                </div>
+                                <div class="carousel-nav">
+                                    <button class="prev" aria-label="Попередній слайд">←</button>
+                                    <button class="next" aria-label="Наступний слайд">→</button>
+                                </div>
+                                <div class="carousel-indicators"></div>
+                            </div>
+                            <div class="description">
+                                <h3>Програмування на Lua</h3>
+                                <p>Скриптинг для ігрових двигунів</p>
+                                <a href="project-art.html">Дізнатися більше</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <script>
+                        document.querySelectorAll('.portfolio-item').forEach(item => {
+                            const carousel = item.querySelector('.carousel-inner');
+                            const items = carousel.querySelectorAll('.carousel-item');
+                            const prevBtn = item.querySelector('.prev');
+                            const nextBtn = item.querySelector('.next');
+                            const indicatorsContainer = item.querySelector('.carousel-indicators');
+                            let currentIndex = 0;
+                            const totalItems = items.length;
+                            items.forEach((_, index) => {
+                                const indicator = document.createElement('button');
+                                indicator.setAttribute('aria-label', `Слайд ${index + 1}`);
+                                indicator.addEventListener('click', () => {
+                                    clearInterval(autoScroll);
+                                    currentIndex = index;
+                                    updateCarousel();
+                                    autoScroll = setInterval(nextSlide, 5000);
+                                });
+                                indicatorsContainer.appendChild(indicator);
+                            });
+                            const indicators = indicatorsContainer.querySelectorAll('button');
+                            let autoScroll = setInterval(nextSlide, 5000);
+                            item.addEventListener('mouseenter', () => clearInterval(autoScroll));
+                            item.addEventListener('mouseleave', () => {
+                                autoScroll = setInterval(nextSlide, 5000);
+                            });
+                            function playActiveVideo() {
+                                items.forEach((item, index) => {
+                                    const video = item.querySelector('video');
+                                    if (video) {
+                                        if (index === currentIndex) {
+                                            video.load();
+                                            video.play().catch(() => {});
+                                        } else {
+                                            video.pause();
+                                            video.currentTime = 0;
+                                        }
+                                    }
+                                });
+                            }
+                            function updateCarousel() {
+                                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                                playActiveVideo();
+                                indicators.forEach((indicator, index) => {
+                                    indicator.classList.toggle('active', index === currentIndex);
+                                });
+                            }
+                            function nextSlide() {
+                                currentIndex = (currentIndex + 1) % totalItems;
+                                updateCarousel();
+                            }
+                            function prevSlide() {
+                                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                                updateCarousel();
+                            }
+                            nextBtn.addEventListener('click', () => {
+                                clearInterval(autoScroll);
+                                nextSlide();
+                                autoScroll = setInterval(nextSlide, 5000);
+                            });
+                            prevBtn.addEventListener('click', () => {
+                                clearInterval(autoScroll);
+                                prevSlide();
+                                autoScroll = setInterval(nextSlide, 5000);
+                            });
+                            item.addEventListener('keydown', (e) => {
+                                if (e.key === 'ArrowRight') {
+                                    clearInterval(autoScroll);
+                                    nextSlide();
+                                    autoScroll = setInterval(nextSlide, 5000);
+                                } else if (e.key === 'ArrowLeft') {
+                                    clearInterval(autoScroll);
+                                    prevSlide();
+                                    autoScroll = setInterval(nextSlide, 5000);
+                                }
+                            });
+                            updateCarousel();
+                        });
+                    </script>
+                </div>
+            </section>
+            <section id="bio" class="bio-section">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="bio-section">
+                            <h1>Про себе</h1>
+                            <p>Короткий огляд моєї творчої та технічної діяльності.</p>
+                        </div>
+                        <div class="bio-content">
+                            <h2>Хто я?</h2>
+                            <p>Назар Славов, творець цифрових рішень, що поєднують мистецтво, UI/UX дизайн і програмування. Моя пристрасть — створювати продукти, які надихають і вирішують реальні проблеми.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="skills-section" id="skills">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Мої навички</h2>
+                        <ul class="skills-grid">
+                            <li>
+                                <h3>UI/UX дизайн</h3>
+                                <p>Створення інтуїтивних інтерфейсів із Figma, Adobe XD та принципами UX.</p>
+                            </li>
+                            <li>
+                                <h3>Фронтенд-розробка</h3>
+                                <p>HTML, CSS, JavaScript, React, адаптивна та кросбраузерна верстка.</p>
+                            </li>
+                            <li>
+                                <h3>Цифрове мистецтво</h3>
+                                <p>Ілюстрації та графічний дизайн у Photoshop, Illustrator, Krita.</p>
+                            </li>
+                            <li>
+                                <h3>Машинне навчання</h3>
+                                <p>Використання ML для аналізу даних і автоматизації.</p>
+                            </li>
+                            <li>
+                                <h3>Креативність</h3>
+                                <p>Розробка унікальних концепцій для брендингу та цифрових продуктів.</p>
+                            </li>
+                            <li>
+                                <h3>Управління проєктами</h3>
+                                <p>Організація роботи команд та дотримання дедлайнів.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="education" class="education-section">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="education-section">
+                            <h1>Біографія</h1>
+                            <p>Основні етапи мого навчання та професійного шляху.</p>
+                        </div>
+                        <div class="education-content">
+                            <h2>Освіта та досвід</h2>
+                            <ul>
+                                <li>Криворізька гімназія №118: закінчив з відзнакою.</li>
+                                <li>Школа Комп’ютерної Майстерності (2019-2025).</li>
+                                <li>Псевдо-3D графіка на Lua (2025): розробка рендерингу для гри в Roblox Studio.</li>
+                                <li>Досвід роботи з Telegram API, створення ботів, автоматизація ферм.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="knowledge" class="knowledge-section">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="knowledge-section">
+                            <h1>Знання</h1>
+                            <p>Ключові навички, які я застосовую у своїй роботі.</p>
+                        </div>
+                        <div class="knowledge-content">
+                            <h2>Мої навички</h2>
+                            <ul>
+                                <li>UI/UX дизайн: створення інтуїтивних інтерфейсів у Figma.</li>
+                                <li>Фронтенд-розробка: HTML, CSS, JavaScript, React, TypeScript.</li>
+                                <li>Цифрове мистецтво: ілюстрації в Photoshop, Illustrator.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer id="footer" role="contentinfo">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-content">
+                        <div class="copyright">
+                            <a href="index.html">© 2025 Назар Славов</a>
+                        </div>
+                        <nav id="nav-footer">
+                            <ul>
+                                <li class="page_item"><a href="bio.html">Про мене</a></li>
+                                <li class="page_item"><a href="learn.html">Навчання</a></li>
+                                <li class="page_item"><a href="portfolio.html">Портфоліо</a></li>
+                                <li class="page_item"><a href="blog.html">Блог</a></li>
+                                <li class="page_item"><a href="contact.html">Контакти</a></li>
+                            </ul>
+                        </nav>
+                        <ul class="footer-social">
+                            <li class="twitter"><a href="https://www.twitter.com/NazarSlavov" title="Стежте за мною у Twitter" target="_blank">Twitter</a></li>
+                            <li class="linkedin"><a href="https://www.linkedin.com/in/nazarslavov" title="Зв’яжіться зі мною у LinkedIn" target="_blank">LinkedIn</a></li>
+                            <li class="facebook"><a href="https://www.facebook.com/nazarslavov" title="Підпишіться на мене у Facebook" target="_blank">Facebook</a></li>
+                            <li class="instagram"><a href="https://www.instagram.com/nazar.slavov" title="Стежте за мною в Instagram" target="_blank">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="back-to-top">
+                <a href="#top">На початок</a>
+            </div>
+        </footer>
+</body>
+</html>

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <title>Славов Назар | Про мене | Біографія</title>
+    <meta name="description" content="Біографія Назара Славова: дізнайтесь про мій шлях у мистецтві, UI/UX дизайні та програмуванні.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Славов Назар | Про мене | Біографія">
+    <meta property="og:description" content="Біографія Назара Славова: дізнайтесь про мій шлях у мистецтві, UI/UX дизайні та програмуванні.">
+    <meta property="og:url" content="https://www.nazarslavov.com/bio">
+    <meta property="og:site_name" content="Славов Назар">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@NazarSlavov">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .row {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .col-12 {
+            width: 100%;
+            max-width: 1200px;
+        }
+        header {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #1f2937;
+            transition: color 0.3s ease;
+        }
+        #logo:hover {
+            color: #3b82f6;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #1f2937;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        nav ul li.active a {
+            background: #3b82f6;
+            color: #ffffff;
+        }
+        .social li {
+            display: inline;
+            margin-left: 8px;
+        }
+        .social li a {
+            font-size: 14px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .social li a:hover {
+            color: #3b82f6;
+        }
+        .icon-nav {
+            display: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #1f2937;
+        }
+        #content {
+            padding: 48px 0;
+            position: relative;
+            z-index: 10;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 64px 0;
+            background: transparent;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        .hero-section p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .bio-section {
+            margin-bottom: 48px;
+        }
+        .bio-section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .bio-section-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .bio-section-header p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 8px auto 0;
+        }
+        .bio-content {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .bio-content h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        .bio-content p {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 16px;
+        }
+        .bio-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .bio-content ul li {
+            font-size: 16px;
+            color: #1f2937;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        .bio-content ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-size: 20px;
+        }
+        .quote-block {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .quote-block p {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+        .quote-block cite {
+            font-size: 14px;
+            font-weight: 500;
+            color: #e5e7eb;
+        }
+        .projects-section, .education-section, .interests-section {
+            margin-top: 48px;
+        }
+        footer {
+            background: #ffffff;
+            padding: 16px 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        footer .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        footer .copyright a {
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        footer .copyright a:hover {
+            color: #3b82f6;
+        }
+        #nav-footer ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            list-style: none;
+        }
+        #nav-footer ul li a {
+            color: #1f2937;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        #nav-footer ul li a:hover {
+            color: #3b82f6;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+        .footer-social li {
+            display: inline;
+        }
+        .footer-social li a {
+            font-size: 14px;
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-social li a:hover {
+            color: #3b82f6;
+        }
+        .back-to-top {
+            padding: 16px 0;
+        }
+        .back-to-top a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .back-to-top a:hover {
+            color: #1d4ed8;
+        }
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #loading-canvas {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="js/modernizr-2.5.3-min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/hooks.min.js"></script>
+    <script src="js/i18n.min.js"></script>
+    <script src="js/swv.min.js"></script>
+    <script src="js/contact-form-7.min.js"></script>
+    <script src="js/script.js"></script>
+    <script type="text/javascript">
+        document.documentElement.className = 'js';
+        window._wpemojiSettings = {
+            "baseUrl": "images/emoji/",
+            "ext": ".png",
+            "svgUrl": "images/emoji/svg/",
+            "svgExt": ".svg",
+            "source": {
+                "concatemoji": "js/wp-emoji-release.min.js"
+            }
+        };
+        window.wp = window.wp || {};
+        wp.i18n = {
+            setLocaleData: function(data) {
+                console.log('Locale data set:', data);
+            }
+        };
+        wp.i18n.setLocaleData({'text direction\u0004ltr': ['ltr']});
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.icon-nav');
+            const navMenu = document.querySelector('#nav');
+            navToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+    <script>
+        let scene, camera, renderer, stars;
+        let mouseX = 0, mouseY = 0;
+        let lastScrollTop = 0;
+        let isInitialized = false;
+        function initLoadingScreen() {
+            if (isInitialized) return;
+            isInitialized = true;
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('loading-canvas'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            const starGeometry = new THREE.BufferGeometry();
+            const starCount = 1000;
+            const positions = new Float32Array(starCount * 3);
+            const colors = new Float32Array(starCount * 3);
+            const sizes = new Float32Array(starCount);
+            for (let i = 0; i < starCount; i++) {
+                positions[i * 3] = (Math.random() - 0.5) * 100;
+                positions[i * 3 + 1] = (Math.random() - 0.5) * 100;
+                positions[i * 3 + 2] = (Math.random() - 0.5) * 100;
+                colors[i * 3] = 0.8;
+                colors[i * 3 + 1] = 0.8;
+                colors[i * 3 + 2] = 1.0;
+                sizes[i] = 0.1 + Math.random() * 0.2;
+            }
+            starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            starGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+            const starMaterial = new THREE.PointsMaterial({
+                size: 0.2,
+                vertexColors: true,
+                transparent: true,
+                blending: THREE.AdditiveBlending
+            });
+            stars = new THREE.Points(starGeometry, starMaterial);
+            scene.add(stars);
+            camera.position.z = 50;
+        }
+        function animate() {
+            requestAnimationFrame(animate);
+            if (!stars) return;
+            stars.rotation.y += 0.001;
+            stars.position.x = mouseX * 0.1;
+            stars.position.y = mouseY * 0.1;
+            renderer.render(scene, camera);
+        }
+        function handleScroll() {
+            const loadingScreen = document.getElementById('loading-screen');
+            const currentScrollTop = window.scrollY;
+            if (currentScrollTop > 50) {
+                loadingScreen.classList.add('hidden');
+            } else {
+                loadingScreen.classList.remove('hidden');
+            }
+            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+        }
+        window.addEventListener('load', () => {
+            initLoadingScreen();
+            animate();
+        });
+        window.addEventListener('resize', () => {
+            if (isInitialized && camera && renderer) {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            }
+        });
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+            mouseY = -(e.clientY / window.innerHeight - 0.5) * 2;
+        });
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('touchmove', handleScroll);
+    </script>
+</head>
+<body>
+    <div id="loading-screen">
+        <canvas id="loading-canvas"></canvas>
+    </div>
+    <header id="header">
+        <div class="row">
+            <div class="col-12">
+                <nav>
+                    <a id="logo" class="logo" href="index.html">Славов Назар</a>
+                    <div class="icon-nav">☰</div>
+                    <ul id="nav">
+                        <li class="page_item active"><a href="bio.html">Про мене</a></li>
+                        <li class="page_item"><a href="learn.html">Навчання</a></li>
+                        <li class="page_item"><a href="partfolio.html">Портфоліо</a></li>
+                        <li class="page_item"><a href="blog.html">Блог</a></li>
+                        <li class="page_item"><a href="contact.html">Контакти</a></li>
+                        <li>
+                            <ul class="social">
+                                <li class="twitter"><a href="https://www.twitter.com/NazarSlavov" title="Стежте за мною у Twitter" target="_blank">Twitter</a></li>
+                                <li class="linkedin"><a href="https://www.linkedin.com/in/nazarslavov" title="Зв’яжіться зі мною у LinkedIn" target="_blank">LinkedIn</a></li>
+                                <li class="facebook"><a href="https://www.facebook.com/nazarslavov" title="Підпишіться на мене у Facebook" target="_blank">Facebook</a></li>
+                                <li class="instagram"><a href="https://www.instagram.com/nazar.slavov" title="Стежте за мною в Instagram" target="_blank">Instagram</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="content" class="content">
+        <section class="hero-section">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Про мене</h1>
+                    <p>Мій шлях у мистецтві, дизайні та технологіях.</p>
+                </div>
+            </div>
+        </section>
+        <section id="bio" class="bio-section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bio-section-header">
+                        <h1>Моя історія</h1>
+                        <p>Дізнайтесь, як я поєдную творчість і технічні навички для створення унікальних проєктів.</p>
+                    </div>
+                    <div class="bio-content">
+                        
+                        <h2>Хто я?</h2>
+                        <p>Я Назар Славов, спеціаліст, який працює на стику мистецтва, UI/UX дизайну та програмування. Моя мета — створювати цифрові продукти, які поєднують функціональність і естетичну привабливість.</p>
+                        <p>Я переконаний, що технології та творчість можуть разом змінювати світ. Мої проєкти відображають цю ідею. За роки роботи я опанував різноманітні інструменти: від створення 3D-контенту до розробки інтерактивних вебінтерфейсів.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="projects-section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bio-content">
+                        <h2>Приклади проєктів</h2>
+                        <ul>
+                            <li>Псевдо-3D графіка на Lua (2025): розробка рендерингу псевдо-3D сцени з рейкастингом для гри в Roblox Studio.</li>
+                            <li>Власний 3D-формат із конвертером на Python (2024): розробка унікального формату 3D-даних і Python-скрипта для конвертації OBJ у цей формат.</li>
+                            <li>Боти для автофарму на Lua (2024-2025): створення автоматизованих скриптів для фарму ресурсів у Roblox-іграх.</li>
+                            <li>Сайти на HTML, CSS, JavaScript (2019–2025): розробка адаптивних вебсайтів, включно з інтерактивними портфоліо та редакторами коду.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="education-section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bio-content">
+                        <h2>Освіта</h2>
+                        <ul>
+                            <li>Криворізька гімназія №118.</li>
+                            <li>Школа Комп’ютерної Майстерності (ШКМ).</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="interests-section">
+            <div class="row">
+                <div class="col-12">
+                    <div class="bio-content">
+                        <h2>Мої інтереси</h2>
+                        <p>Поза роботою я захоплююся вивченням нових технологій і створенням цифрового мистецтва. Також люблю експериментувати зі штучним інтелектом для створення генеративного контенту.</p>
+                        <ul>
+                            <li>Цифрове мистецтво та 3D-моделювання.</li>
+                            <li>Штучний інтелект і машинне навчання.</li>
+                            <li>Відеоігри та їх розробка.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer id="footer" role="contentinfo">
+        <div class="row">
+            <div class="col-12">
+                <div class="footer-content">
+                    <div class="copyright">
+                        <a href="index.html">© 2025 Назар Славов</a>
+                    </div>
+                    <nav id="nav-footer">
+                        <ul>
+                            <li class="page_item"><a href="bio.html">Про мене</a></li>
+                            <li class="page_item"><a href="learn.html">Навчання</a></li>
+                            <li class="page_item"><a href="partfolio.html">Портфоліо</a></li>
+                            <li class="page_item"><a href="blog.html">Блог</a></li>
+                            <li class="page_item"><a href="contact.html">Контакти</a></li>
+                        </ul>
+                    </nav>
+                    <ul class="footer-social">
+                        <li class="twitter"><a href="https://www.twitter.com/NazarSlavov" title="Стежте за мною у Twitter" target="_blank">Twitter</a></li>
+                        <li class="linkedin"><a href="https://www.linkedin.com/in/nazarslavov" title="Зв’яжіться зі мною у LinkedIn" target="_blank">LinkedIn</a></li>
+                        <li class="facebook"><a href="https://www.facebook.com/nazarslavov" title="Підпишіться на мене у Facebook" target="_blank">Facebook</a></li>
+                        <li class="instagram"><a href="https://www.instagram.com/nazar.slavov" title="Стежте за мною в Instagram" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="back-to-top">
+            <a href="#top">На початок</a>
+        </div>
+    </footer>
+</body>
+</html>
